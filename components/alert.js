@@ -25,12 +25,12 @@ export default function Alert({ preview }) {
             </>
           ) : (
             <>
-              The source code for this blog is{' '}
+                 Visit {' '}
               <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+                href={`https://underbel.li`}
                 className="underline hover:text-success duration-200 transition-colors"
               >
-                available on GitHub
+                Underbelly and Wild + Precious
               </a>
               .
             </>
