@@ -16,7 +16,7 @@ export default function Intro() {
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
         Hello! Curiosity is my super power.{' '}
         <a
-          href="underbel.li/blog/bpage/connect/"
+          href="https://underbel.li/blog/bpage/contact"
           className="underline hover:text-success duration-200 transition-colors"
         >
           What's yours?

@@ -5,6 +5,8 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
+import Subscribe from '../components/Subscribe';
+
 
 
 export default function Index({ allPosts }) {
@@ -18,6 +20,7 @@ export default function Index({ allPosts }) {
         </Head>
         <Container>
           <Intro />
+          <Subscribe />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
