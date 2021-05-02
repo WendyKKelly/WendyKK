@@ -4,19 +4,22 @@ const Section = styled.div`
 form {
     padding: 1rem;
 }
-message {
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
+
 button {
     
     border-color: #ee9b27;
-    width: 20rem;
-    height: 4rem;
+    width: 15rem;
+    height: 3rem;
     text-align: center;
     font-size: 3rem;
     font-weight: 900;
     padding-bottom: 1.3rem;
+}
+button:hover {
+
+    padding-bottom: 1.3rem;
+    border-bottom: 3px solid #000; 
+
     
     
 }

@@ -37,13 +37,13 @@ export default function Subscribe() {
 
   return (
     <Section>
-       <div className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
+       <div className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight md:pr-8">
         {message
           ? message
-          : `Stay Connected.`}
+          : `Stay Connected:`}
       </div>
     <form onSubmit={subscribe}>
-      <label htmlFor="email-input">{'Email '}</label>
+      <label htmlFor="email-input">{' '}</label>
       <input
         id="email-input"
         name="email"
