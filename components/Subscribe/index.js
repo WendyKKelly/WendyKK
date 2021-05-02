@@ -54,7 +54,7 @@ export default function Subscribe() {
       />
      
       <div className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-      <button  type="submit">{'✨Submit '}</button></div>
+      <button  type="submit">{'Submit '}</button></div>
     </form>
     </Section>
   );
