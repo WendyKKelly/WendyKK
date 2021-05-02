@@ -14,6 +14,8 @@ This is admitedly a quick blog post to see how it feels to post using markdown i
 
 So - awhile back I started a project I named Underbelly. I started writing newsletters once a week, and the feedback I got was encouraging. I kept going, adding in a podcast, a few courses, and booklists - the idea being, here are lists of books you might want to read if you feel in need of self care, or reflection, or whatever.
 
-## Lorem Ipsum
+## The Project Grows...
 
-Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+Life took a bit of a turn as covid intensified our lives. I kept putting out newsletters but I had to pause the podcast for a bit because things were a bit chaotic and I couldn't know that I would have a solid few hours to devote to the podcast each week.
+
+I began to realize that this project was more important than I expected it to be. As I wrote each newsletter, I realized it really is my gift to the world. A long time ago, I had a therapy session with this lovely Episcopal priest and poet in Oregon. I ended up visualizing the words Create / Give Back in blue and yellow text. I believe that this project is my "Create /Give Back" 
