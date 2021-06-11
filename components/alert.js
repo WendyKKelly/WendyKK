@@ -17,7 +17,7 @@ export default function Alert({ preview }) {
               This page is a preview.{' '}
               <a
                 href="/api/exit-preview"
-                className="underline hover:text-cyan duration-200 transition-colors"
+                className="hover:bg-yellow duration-200 transition-colors"
               >
                 Click here
               </a>{' '}
@@ -25,12 +25,12 @@ export default function Alert({ preview }) {
             </>
           ) : (
             <>
-                 Visit {' '}
+                 Learn more about why I am doing this project  {' '}
               <a
-                href={`https://underbel.li`}
-                className="underline hover:text-success duration-200 transition-colors"
+                href={`https://www.buymeacoffee.com/wendykkelly`}
+                className="hover:bg-yellow duration-200 transition-colors"
               >
-                Underbelly and Wild + Precious
+                And Buy Me A Beer
               </a>
               .
             </>

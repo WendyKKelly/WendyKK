@@ -17,7 +17,7 @@ export default function Intro() {
         Hello! Curiosity is my super power.{' '}
         <a
           href="https://underbel.li/blog/bpage/contact"
-          className="underline hover:text-success duration-200 transition-colors"
+          className="hover:text-bg-yellow duration-200"
         >
           What's yours?
         </a>{' '}

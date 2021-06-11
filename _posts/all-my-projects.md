@@ -4,7 +4,7 @@ excerpt: 'Underbelly, Wild + Precious, and Explicit Christian. These three proje
 coverImage: '/assets/blog/all-my-projects/cover.jpg'
 date: '2020-03-16T05:35:07.322Z'
 author:
-  name: Wendy Kelly
+  name: 'Wendy Kelly'
   picture: '/assets/blog/authors/wendy.jpeg'
 ogImage:
   url: '/assets/blog/all-my-projects/cover.jpg'
