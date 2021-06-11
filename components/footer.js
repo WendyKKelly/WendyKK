@@ -11,17 +11,12 @@ export default function Footer() {
           </h3>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
+              href="/about"
+              className="mx-3 bg-black hover:bg-yellow hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
+            >About Wendy & The 100 Beers
               
             </a>
-            <a
-              href={`https://github.com/wendykkelly/g${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              
-            </a>
+            
           </div>
         </div>
       </Container>
