@@ -1,5 +1,5 @@
 import Container from '../components/container'
-import Intro from '../components/intro'
+
 import Layout from '../components/layout'
 import About from '../components/about'
 import Head from 'next/head'
