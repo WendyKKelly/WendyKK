@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import Container from '../container'
 import Link from 'next/link'
 
-import Section from './about.style';
+
 
 export default function About() {
     return (
