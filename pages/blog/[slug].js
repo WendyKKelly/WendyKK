@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import c from "./SingleBlog.module.css";
-import Spinner from "../../components/Spinner";
+
+
 
 export class SingleBlog extends Component {
  
@@ -24,6 +24,7 @@ export class SingleBlog extends Component {
       .then((data) => {
    
         const avatar = data.data.feed.image;
+        const date = data.data.items.pubDate;
         const profileLink = data.data.feed.link;
         const res = data.data.items; 
         const posts = res.filter((item) => item.categories.length > 0);
@@ -44,7 +45,7 @@ export class SingleBlog extends Component {
         
       })
       .catch((e) => {
-        this.setState({error:e.toJSON()})
+       
         console.log(e);
       });
   }
@@ -54,7 +55,7 @@ export class SingleBlog extends Component {
     if(this.state.singlePost){
      post =( <>
        <h2>{this.state.singlePost.title}</h2>
-        <div className={c.avatar}>
+        <div >
           <a
             href={this.state.profileLink}
             rel="noopener noreferrer"
@@ -73,14 +74,12 @@ export class SingleBlog extends Component {
           <p>{this.state.singlePost.pubDate}</p>
         </div>
   
-      <div className={c.content}  dangerouslySetInnerHTML={{ __html:this.state.singlePost.content}}>
+      <div   dangerouslySetInnerHTML={{ __html:this.state.singlePost.content}}>
           </div>
       </>
      )
     }
-    if(this.state.isloading){
-      post = <Spinner/>
-    }
+  
     if(this.state.error){
    let   error = this.state.error.code ? this.state.error.code : this.state.error.name;
       let errorMsg = this.state.error.message;
@@ -93,7 +92,7 @@ export class SingleBlog extends Component {
     }
     
     return (
-      <div className={`container ${c.center}`}>
+      <div >
        {post}
       </div>
     );
