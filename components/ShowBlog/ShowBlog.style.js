@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 const Section = styled.div`
 
+a {
+    color: red;
+}
+
 .cardsmall {
     position: relative;
     display: flex;

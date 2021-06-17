@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Link from 'next/link'
 import Image from 'next/image'
+import Container from '../../Components/container'
 
 
 
@@ -13,15 +14,14 @@ export class SingleBlog extends Component  {
     super(props);
     this.state = {
       single: {},
-      titleid: `./blog/[slug]`,
+      titleid: `{props.title}`,
       avatar: "",
       profile: "",
       error:null,
       isloading:true
     };
   }
-
-
+  
   mediumURL =
     "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly";
   componentDidMount() {
@@ -36,16 +36,16 @@ export class SingleBlog extends Component  {
         const posts = res.filter((item) => item.categories.length > 0);
         for (let i in posts) {
           const title = "/" + posts[i].title;
-          if (title === this.state.id) {
+          if (title === this.state.titleid) {
             let post = posts[i];
             
               this.setState((p) => ({
-                single: slug,
+                single: post,
                 avatar: avatar,
                 profile: profile,
                 isloading:false
               }));
-              console.log({post})
+              
           }
         }
         
@@ -60,15 +60,15 @@ export class SingleBlog extends Component  {
  
   render() {
     let post
-    if(this.state.id){
+    if(this.state.single){
      post =( <>
-       <h2>{this.state.id.title}</h2>
+       <h2>{this.state.single.title}</h2>
         <div >
           <a
             href={this.state.profile}
             
           >
-            <img src={this.state.avatar} alt="profile" width="75" height="75" />
+            <img src={this.state.avatar} alt="PROFILE" width="75" height="75" color="red" />
           </a>
 
           <a
@@ -99,9 +99,11 @@ export class SingleBlog extends Component  {
     }
     
     return (
+      <Container>
       <div >
        {post}
       </div>
+      </Container>
     );
   }
 }

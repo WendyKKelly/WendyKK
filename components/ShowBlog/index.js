@@ -3,6 +3,15 @@ import moment from "moment";
 import Link from 'next/link'
 import Section from './ShowBlog.style';
 
+
+/*const MyButton = React.forwardRef(({ onClick, href }, props) => {
+  return (
+    <a href={href} onClick={onClick} ref={props.title}>
+      {props.title}
+    </a>
+  )
+})*/
+
 export default function ShowBlog(props, p) {
  
   return (
@@ -15,10 +24,12 @@ export default function ShowBlog(props, p) {
     
 
            
-        
-            <h1>
-              Written By Wendy
-            </h1>
+         <Link href={{
+              pathname: '/blog/[id]',
+              query: { id: props.title },
+            }}><a>{props.title}</a>
+      
+    </Link>
             
      
 
