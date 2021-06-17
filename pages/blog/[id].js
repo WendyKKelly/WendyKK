@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Link from 'next/link'
 import Image from 'next/image'
-import Container from '../../Components/container'
+import Container from '../../components/container'
 
 
 
