@@ -1,0 +1,72 @@
+import React, { Component } from "react";
+import Axios from "axios";
+import ShowSingleBlog from '../ShowSingleBlog'
+import Layout from '../layout'
+import { useRouter } from "next/router";
+export class SingleBlog extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profile: {
+        ptitle: "",
+        name: "",
+        avtar: "",
+        profileurl: "",
+        post: "",
+      },
+      item: [],
+      isloading: true,
+      error: null
+    };
+  }
+  mediumURL =
+    "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly";
+  componentDidMount() {
+    Axios.get(this.mediumURL)
+      .then((data) => {
+        const router = useRouter();
+        const avatar = data.data.feed.image;
+        const date = data.data.items.pubDate;
+        const profileLink = data.data.feed.link;
+        const res = data.data.items; //This is an array with the content. No feed, no info about author etc..
+        const posts = res.filter(item => item.categories.length > 0);
+        const post = posts[router.query.slug];
+        const title = data.data.feed.title;
+console.log(data.data);
+        this.setState(
+          (pre) => ({
+            profile: {
+              ...pre.profile,
+              ptitle: title,
+              profileurl: profileLink,
+              avtar: avatar,
+              post: post,
+            },
+            post: post,
+            isloading: false
+          }),
+          () => {
+          }
+        );
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+  render() {
+   let post 
+   if (this.state.item) {
+post = (  <>
+  <h1>{this.state.item.title}</h1>
+  <p>{this.state.item.content}</p>
+</>)
+   
+}
+  return (
+    
+    {post}
+    
+  )
+}
+}
+  export default SingleBlog;

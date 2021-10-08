@@ -1,27 +1,22 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Link from 'next/link'
 import Image from 'next/image'
-import Container from '../../components/container'
+import Link from 'next/link'
 
 
-
-
-
-export class SingleBlog extends Component  {
+export class SingleBlog extends Component {
  
   constructor(props) {
     super(props);
     this.state = {
-      single: {},
-      titleid: `{props.title}`,
+      singlePost: {},
+      titleid: '/blog/[title]',
       avatar: "",
-      profile: "",
+      profileLink: "",
       error:null,
       isloading:true
     };
   }
-  
   mediumURL =
     "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly";
   componentDidMount() {
@@ -30,8 +25,7 @@ export class SingleBlog extends Component  {
       .then((data) => {
    
         const avatar = data.data.feed.image;
-        const date = data.data.items.pubDate;
-        const profile = data.data.feed.link;
+        const profileLink = data.data.feed.link;
         const res = data.data.items; 
         const posts = res.filter((item) => item.categories.length > 0);
         for (let i in posts) {
@@ -40,53 +34,46 @@ export class SingleBlog extends Component  {
             let post = posts[i];
             
               this.setState((p) => ({
-                single: post,
+                singlePost: post,
                 avatar: avatar,
-                profile: profile,
+                profileLink: profileLink,
                 isloading:false
               }));
-              
+            
           }
         }
-        
+        console.log(profileLink);
       })
       .catch((e) => {
-       
+        
         console.log(e);
       });
-    
   }
 
- 
   render() {
     let post
-    if(this.state.single){
+    if(this.state.singlePost){
      post =( <>
-       <h2>{this.state.single.title}</h2>
-        <div >
-          <a
-            href={this.state.profile}
-            
-          >
-            <img src={this.state.avatar} alt="PROFILE" width="75" height="75" color="red" />
+       <h2>{this.state.singlePost.title}</h2>
+        <div className="avatar">
+          <Link href={`${encodeURIComponent(this.state.profileLink)}`} >
+          <a >
+            Image
           </a>
-
-          <a
-            href={this.state.profile}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <p>{this.state.single.author}</p>
-          </a>
-          <p>{this.state.single.date}</p>
+          </Link>
+          <Link href={`${encodeURIComponent(this.state.profileLink)}`} >
+          <a>
+            <p>{this.state.singlePost.author}</p>
+          </a></Link>
+          <p>{this.state.singlePost.pubDate}</p>
         </div>
   
-      <div   dangerouslySetInnerHTML={{ __html:this.state.single.content}}>
+      <div className="content"  dangerouslySetInnerHTML={{ __html:this.state.singlePost.content}}>
           </div>
       </>
      )
     }
-  
+   
     if(this.state.error){
    let   error = this.state.error.code ? this.state.error.code : this.state.error.name;
       let errorMsg = this.state.error.message;
@@ -99,14 +86,11 @@ export class SingleBlog extends Component  {
     }
     
     return (
-      <Container>
-      <div >
+      <div className="container ">
        {post}
       </div>
-      </Container>
     );
   }
 }
 
 export default SingleBlog;
-

@@ -1,25 +1,23 @@
-import React, { Component } from "react";
-import Layout from '../../components/layout'
 import Blog from '../../components/Blog'
-import Container from '../../components/container'
-import Header from '../../components/header'
+import SingleBlog from "../../components/SingleBlog";
+import Layout from '../../components/layout';
+import {  Switch, Route, HashRouter } from "react-router-dom";
 
-
-
-export default function BlogPost() {
+export default function App() {
   
     return (
-        <>
-      
-            <Container>
-                
-        <Blog />
-        <h1>Batman TV Shows</h1>
-        
-        </Container>
-        
-        </>
-    );
-  }
+<>
+<HashRouter >
+        <Layout >
+        <Switch>
+          
+          <Route path="/:slug" exact component={SingleBlog}></Route>
+          <Route path="/" exact component={Blog}></Route>
+        </Switch>
+      </Layout>
+      </HashRouter>
+</>
 
+    )
+}
 

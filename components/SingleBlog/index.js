@@ -1,92 +1,60 @@
+import axios from 'axios';
 import React, { Component } from "react";
-import Axios from "axios";
-import Link from 'next/link'
-import Image from 'next/image'
-
-
-
-
-
 export class SingleBlog extends Component  {
+   constructor(props) {
+        super(props);
+        this.state = {
+          singlePost: {},
+          titleid: props.location.pathname,
+          query: {slug: props.title},
+         
+          error:null,
+          isloading:true
+        };
+    }
+
+mediumURL ='https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly';
+componentDidMount() {
+axios.get(this.mediumURL)
+
  
-  constructor(props) {
-    super(props);
-    this.state = {
-      single: {},
-      titleid: `./blog/[slug]`,
-      avatar: "",
-      profile: "",
-      error:null,
-      isloading:true
-    };
-  }
-
-
-  mediumURL =
-    "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly";
-  componentDidMount() {
-    Axios.get(this.mediumURL)
-
-      .then((data) => {
-   
-        const avatar = data.data.feed.image;
-        const date = data.data.items.pubDate;
-        const profile = data.data.feed.link;
-        const res = data.data.items; 
+   .then((data) => {
+        const res = data.data.items; //This is an array with the content. No feed, no info about author etc.
         const posts = res.filter((item) => item.categories.length > 0);
         for (let i in posts) {
-          const title = "/" + posts[i].title;
-          if (title === this.state.id) {
-            let post = posts[i];
-            
-              this.setState((p) => ({
-                single: slug,
-                avatar: avatar,
-                profile: profile,
-                isloading:false
-              }));
-              console.log({post})
-          }
-        }
+            const title = "/" + posts[i].title;
+            if (title === this.state.titleid) {
+              let post = posts[i];
+     
+
+         this.setState((p) => ({
+            singlePost: post,
+         
+            isloading:false
+          }));
         
-      })
-      .catch((e) => {
-       
-        console.log(e);
-      });
+      }
+        }
     
-  }
-
- 
-  render() {
+  })
+  .catch((e) => {
+   
+    console.log(e);
+  });
+}
+render() {
     let post
-    if(this.state.id){
+    if(this.state.singlePost){
      post =( <>
-       <h2>{this.state.id.title}</h2>
-        <div >
-          <a
-            href={this.state.profile}
-            
-          >
-            <img src={this.state.avatar} alt="profile" width="75" height="75" />
-          </a>
-
-          <a
-            href={this.state.profile}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <p>{this.state.single.author}</p>
-          </a>
-          <p>{this.state.single.date}</p>
-        </div>
+       <h2>{this.state.singlePost.title}</h2>
+       
   
-      <div   dangerouslySetInnerHTML={{ __html:this.state.single.content}}>
+      <div  dangerouslySetInnerHTML={{ __html:this.state.singlePost.content}}>
           </div>
       </>
      )
-    }
-  
+     }
+   
     if(this.state.error){
    let   error = this.state.error.code ? this.state.error.code : this.state.error.name;
       let errorMsg = this.state.error.message;
@@ -97,14 +65,15 @@ export class SingleBlog extends Component  {
         </>
       );
     }
-    
+
     return (
-      <div >
+        <div >
        {post}
-      </div>
+       </div>
     );
   }
 }
+  export default SingleBlog;
 
-export default SingleBlog;
+
 

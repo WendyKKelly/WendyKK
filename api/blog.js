@@ -1,35 +1,44 @@
 
+import axios from 'axios';
+export default function Posts() {
+mediumURL =
+    "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly";
 
 
-import fetch from 'isomorphic-unfetch'
-import { data } from 'remark';
-
-
-
-
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wendykianakelly')
-    .then(resp => resp.json()).then(data => this.setState({data}))
-  
-    export async function getPosts() {
-        return await data.posts
-          .browse({
-            include: 'tags,authors',
-            limit: 'all',
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      }
+    axios.get(this.mediumURL)
+    .then((data) => {
       
-      export async function getSinglePost(postSlug) {
-        return await data.posts
-          .read({
-            slug: postSlug,
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      }
-  
-  
+      const avatar = data.data.feed.image;
+      const date = data.data.items.pubDate;
+      
+      const profileLink = data.data.feed.link;
+      const res = data.data.items; //This is an array with the content. No feed, no info about author etc..
+      const posts = res.filter(item => item.categories.length > 0);
+
+      const title = data.data.feed.title;
+console.log(data.data);
+      this.setState(
+        (pre) => ({
+          profile: {
+            ...pre.profile,
+            ptitle: title,
+            profileurl: profileLink,
+            avtar: avatar,
+            
+          },
+          item: posts,
+          isloading: false
+        }),
+      )
+    });
+      
+
+  }
+
+
+      
+    
+      
+    
  
+   
