@@ -2,7 +2,7 @@
 title: 'Grace As An Essential'
 excerpt: 'Russel Brand interviewed Gabor Mate in 2019. I listened this morning and am absolutely struck by the essentialism of grace. '
 coverImage: '/assets/blog/grace/cover.jpg'
-date: '2020-03-16T05:35:07.322Z'
+date: '2021-10-08T05:35:07.322Z'
 author:
   name: Wendy Kelly
   picture: '/assets/blog/authors/wendy.jpeg'
